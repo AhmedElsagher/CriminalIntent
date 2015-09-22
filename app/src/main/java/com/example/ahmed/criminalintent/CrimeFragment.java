@@ -53,6 +53,8 @@ public class CrimeFragment extends Fragment  {
         });
 
         mDateButton= (Button) view.findViewById(R.id.crime_date);
+        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton.setEnabled(false);
 
         mSolvedCheckBox= (CheckBox) view.findViewById(R.id.crime_solved);
         mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -61,11 +63,8 @@ public class CrimeFragment extends Fragment  {
                 mCrime.setSolved(isChecked);
             }
         });
-        android.text.format.DateFormat df = new android.text.format.DateFormat();
-       String dormattedDate= (df.format("EEEE,MMM dd,yyyy", mCrime.getDate())).toString();
 
-        mDateButton.setText(dormattedDate);
-        mDateButton.setEnabled(false);
+
 
         return view;
     }
